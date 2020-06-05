@@ -2,6 +2,7 @@ import path from 'path';
 import { Configuration } from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __DEV__: boolean = process.env.NODE_ENV !== 'production';
 
@@ -20,6 +21,9 @@ export default (): Configuration => ({
       template: 'src/template.html',
       minify: true,
     }),
+    new MiniCssExtractPlugin({
+      filename: 'baseStyle.css',
+    }),
   ],
   module: {
     rules: [
@@ -27,6 +31,10 @@ export default (): Configuration => ({
         test: /\.tsx?$/i,
         exclude: /node_modules/,
         use: ['ts-loader'],
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
