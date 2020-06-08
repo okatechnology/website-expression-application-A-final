@@ -37,7 +37,7 @@ export default (): Configuration => ({
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(svg|jpg|png)$/,
+        test: /\.(svg|jpg|png|otf|ttf)$/,
         use: ['file-loader'],
       },
     ],

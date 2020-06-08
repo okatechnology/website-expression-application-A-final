@@ -1,24 +1,33 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { dhuColor } from '../data/value';
-import Text from '../components/Text';
-import Image from '../components/Image';
+import TextWrapper from './TextWrapper';
+import ImageWrapper from './ImageWrapper';
 
 const Viewer: FC = ({ children }) => {
   return (
     <>
       <Wrapper>
         <ImgBox>
-          <Image />
+          <ImageWrapper />
         </ImgBox>
         <CenterBorder />
         <TextBox>
-          <Text children={children} />
+          <TextWrapper children={children} />
         </TextBox>
       </Wrapper>
     </>
   );
 };
+
+const fadein = keyframes`
+  0%{
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+`;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -29,12 +38,20 @@ const ImgBox = styled.div`
   height: 100vh;
   width: 50%;
   position: fixed;
+  animation: ${fadein} 1.5s;
 `;
 
 const TextBox = styled.div`
   height: 100vh;
   width: 50%;
   margin-left: 50%;
+  animation: ${fadein} 1.5s;
+`;
+
+const extend = keyframes`
+  0%{
+    transform: translateY(-100vh);
+  }
 `;
 
 const CenterBorder = styled.span`
@@ -45,6 +62,7 @@ const CenterBorder = styled.span`
   right: 50%;
   top: 0;
   background-color: ${dhuColor};
+  animation: ${extend} 1s;
 `;
 
 export default Viewer;
