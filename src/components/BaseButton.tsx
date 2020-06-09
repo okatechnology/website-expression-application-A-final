@@ -8,7 +8,7 @@ interface BaseButtonProps {
   marginBottom?: number;
   marginRight?: number;
   children: ReactNode;
-  href: string
+  href: string;
 }
 
 const BaseButton = (props: BaseButtonProps) => {
@@ -39,7 +39,7 @@ const Button = styled.a<ButtonProps>`
   font-size: 1.4rem;
   transition: background-color 0.2s, color 0.2s;
 
-  &:hover{
+  &:hover {
     background-color: ${buttonColor};
     color: #fff;
   }

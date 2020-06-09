@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { dhuColor } from '../data/value';
 
+const DEFAULT_MARGIN = 128;
+
 interface SubTitleProps {
   EnglishTitle: string;
   JapaneseTitle: string;
-  marginTop: number;
+  marginTop?: number;
 }
 
 const SubTitle = ({ EnglishTitle, JapaneseTitle, marginTop }: SubTitleProps) => {
@@ -19,7 +21,7 @@ const SubTitle = ({ EnglishTitle, JapaneseTitle, marginTop }: SubTitleProps) => 
 };
 
 interface LineProps {
-  marginTop: number;
+  marginTop?: number;
 }
 
 const Line = styled.span<LineProps>`
@@ -27,7 +29,8 @@ const Line = styled.span<LineProps>`
   width: 100%;
   height: 0.1rem;
   background-color: ${dhuColor};
-  margin-top: ${({ marginTop }) => (marginTop ? marginTop : 0)}px;
+  margin-top: ${({ marginTop }) =>
+    marginTop != undefined ? marginTop : DEFAULT_MARGIN}px;
 `;
 
 const EnglishText = styled.h2`

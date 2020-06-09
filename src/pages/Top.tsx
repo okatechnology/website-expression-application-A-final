@@ -5,6 +5,7 @@ import COLTitle from '../components/groups/characteristicOfLearning/COLTitle';
 import COLMain from '../components/groups/characteristicOfLearning/COLMain';
 import BaseButton from '../components/BaseButton';
 import ScrollDownArrow from '../components/ScrollDownArrow';
+import CoursesTitle from '../components/groups/courses/CoursesTitle';
 
 const Top: FC = () => {
   return (
@@ -17,6 +18,7 @@ const Top: FC = () => {
         <BaseButton href="#" marginTop={32}>
           Webデザイナーとは
         </BaseButton>
+        <CoursesTitle />
       </Viewer>
     </>
   );

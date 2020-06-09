@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import useGlobalState from '../GlobalState';
-import gazo from '../../images/3dcg.jpg';
+import imageData from '../data/images';
+import Image from './Image';
+
+const imageComponents = imageData.map((src) => <Image src={src} key={src} />);
 
 const ImageWrapper = () => {
-  return <ShowImage />;
+  return <ShowImage>{imageComponents}</ShowImage>;
 };
 
 const ShowImage = styled.div`
-  height: 100vh;
-  background-size: cover;
-  background-position: center center;
-  background-image: url(${gazo});
+  position: relative;
 `;
 
 export default ImageWrapper;

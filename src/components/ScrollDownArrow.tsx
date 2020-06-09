@@ -5,7 +5,9 @@ const THRESHOUD = 10;
 
 const ScrollDownArrow = () => {
   const [show, setShow] = useState(true);
+  const [showArrow, setArrow] = useState(true);
   const showRef = useRef(show);
+  showRef.current = show;
   const scrolled = useRef(true);
 
   useEffect(() => {
@@ -15,11 +17,9 @@ const ScrollDownArrow = () => {
         if (!scrolled.current) return;
         scrolled.current = false;
         if (window.scrollY > THRESHOUD && showRef.current) {
-          showRef.current = false;
-          setShow(showRef.current);
+          setShow(false);
         } else if (window.scrollY <= THRESHOUD && !showRef.current) {
-          showRef.current = true;
-          setShow(showRef.current);
+          setShow(true);
         }
       })();
     };
@@ -35,12 +35,45 @@ const ScrollDownArrow = () => {
   }, []);
 
   return (
-    <Wrapper style={!show ? { display: 'none' } : undefined}>
-      <ArrowPart location={1} />
-      <ArrowPart location={-1} />
+    <Wrapper
+      show={show}
+      onAnimationEnd={() => {
+        setArrow(show);
+      }}
+    >
+      <Arrow show={showArrow}>
+        <ArrowPart location={1} />
+        <ArrowPart location={-1} />
+      </Arrow>
     </Wrapper>
   );
 };
+
+const fadein = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const fadeout = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
+
+interface WrapperProps {
+  show: boolean;
+}
+
+const Wrapper = styled.div<WrapperProps>`
+  animation: ${({ show }) => (show ? fadein : fadeout)} 0.3s;
+`;
 
 const move = keyframes`
   0%{
@@ -59,14 +92,18 @@ const move = keyframes`
   }
 `;
 
-const Wrapper = styled.div`
+interface ArrowProps {
+  show: boolean;
+}
+
+const Arrow = styled.div<ArrowProps>`
   margin: 0 auto;
   position: fixed;
   bottom: 4.8rem;
-  display: flex;
   width: calc(50% - 8rem);
   justify-content: center;
   animation: ${move} 2s infinite;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
 `;
 
 interface ArrowPartProps {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
 import Top from './pages/Top';
-import GlobalStyle from './GlobalStyle';
+import GlobalStyle, { loadFonts } from './GlobalStyle';
 import { GlobalStateProvider } from './GlobalState';
 
 const App: FC = () => {
@@ -15,4 +15,4 @@ const App: FC = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'), loadFonts);
