@@ -1,33 +1,34 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import useGlobalState from '../GlobalState';
 
-interface ImageProps {
-  src: string;
-}
+interface ImageProps extends BGImageData {}
 
-const Image = ({ src }: ImageProps) => {
+const CONTAIN_MARGIN = 40;
+
+const Image = ({ src, size }: ImageProps) => {
   const shownImg = useGlobalState().shownImg;
   const show = useMemo(() => src === shownImg, [shownImg]);
-  return <Wrapper src={src} show={show} style={{ backgroundImage: `url('${src}')` }} />;
+  return <Wrapper size={size} show={show} style={{ backgroundImage: `url('${src}')` }} />;
 };
 
-interface WrapperProps {
-  src: string;
+interface WrapperProps extends Omit<ImageProps, 'src'> {
   show: boolean;
 }
 
 const Wrapper = styled.div<WrapperProps>`
-  height: 100vh;
-  background-size: cover;
+  height: ${({ size }) =>
+    size === 'contain' ? `calc(100vh - ${(CONTAIN_MARGIN * 2) / 10}rem)` : '100vh'};
+  background-size: ${({ size }) => size};
   background-position: center center;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  top: 0;
-  right: 0;
+  left: ${({ size }) => (size === 'contain' ? `${CONTAIN_MARGIN / 10}rem` : '0')};
+  bottom: ${({ size }) => (size === 'contain' ? `${CONTAIN_MARGIN / 10}rem` : '0')};
+  top: ${({ size }) => (size === 'contain' ? `${CONTAIN_MARGIN / 10}rem` : '0')};
+  right: ${({ size }) => (size === 'contain' ? `${CONTAIN_MARGIN / 10}rem` : '0')};
   opacity: ${({ show }) => (show ? 1 : 0)};
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
+  background-repeat: no-repeat;
 `;
 
 export default Image;

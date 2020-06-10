@@ -26,40 +26,38 @@ import garary from '../../images/garary.jpg';
 import webHero from '../../images/web_hero.jpg';
 import graphic from '../../images/graphic.jpg';
 import webOverviewPoster from '../../images/web_overview_poster.jpg';
+import dhuLogoBig from '../../images/dhu_logo_big.png';
 
-type ImageData = {
-  name: { src: string };
-};
-
-const images = [
-  threedcg,
-  koukoku,
-  anime,
-  movie,
-  classesDevelopment,
-  office,
-  classesPrototyping,
-  teacherKomatsu,
-  classesSeminar,
-  teacherKuriya,
-  create,
-  teacherYukiNakamura,
-  dhuLogo,
-  teachersHero,
-  featureBusiness,
-  vrar,
-  featureCarriculam,
-  web,
-  featureClassesHero,
-  webGalleryGpMetro,
-  featureLearning,
-  webGalleryPortfolio,
-  game,
-  webGalleryTokyoKawaiiGuide,
-  garary,
-  webHero,
-  graphic,
-  webOverviewPoster,
+const images: BGImageData[] = [
+  { src: threedcg, size: 'cover' },
+  { src: koukoku, size: 'cover' },
+  { src: anime, size: 'cover' },
+  { src: movie, size: 'cover' },
+  { src: classesDevelopment, size: 'contain' },
+  { src: office, size: 'cover' },
+  { src: classesPrototyping, size: 'contain' },
+  { src: teacherKomatsu, size: 'contain' },
+  { src: classesSeminar, size: 'contain' },
+  { src: teacherKuriya, size: 'contain' },
+  { src: create, size: 'cover' },
+  { src: teacherYukiNakamura, size: 'contain' },
+  { src: dhuLogo, size: 'cover' },
+  { src: teachersHero, size: 'cover' },
+  { src: featureBusiness, size: 'cover' },
+  { src: vrar, size: 'cover' },
+  { src: featureCarriculam, size: 'cover' },
+  { src: web, size: 'cover' },
+  { src: featureClassesHero, size: 'cover' },
+  { src: webGalleryGpMetro, size: 'contain' },
+  { src: featureLearning, size: 'cover' },
+  { src: webGalleryPortfolio, size: 'contain' },
+  { src: game, size: 'cover' },
+  { src: webGalleryTokyoKawaiiGuide, size: 'contain' },
+  { src: garary, size: 'cover' },
+  { src: webHero, size: 'cover' },
+  { src: graphic, size: 'cover' },
+  { src: webOverviewPoster, size: 'cover' },
+  { src: dhuLogoBig, size: 'contain' },
 ];
 
 export default images;

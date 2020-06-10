@@ -8,29 +8,25 @@ import webHero from '../../../../images/web_hero.jpg';
 
 const FirstView = () => {
   return (
-    <TextGroupWrapper groupImage={webHero}>
-      <Wrapper>
-        <div>
-          <PageLocation>Webデザイン・Web開発</PageLocation>
-          <Title>
-            <TextBlock>Web業界を</TextBlock>
-            <TextBlock>リードするための</TextBlock>
-            <br />
-            <TextBlock>知識と技術を</TextBlock>
-            <TextBlock>手に入れる</TextBlock>
-          </Title>
-          <BasicText marginTop={48}>
-            スマートフォンの普及、SNSの流行、ネットワークビジネスの拡大など、めざましい発展を続けるWeb業界。そこで求められる最先端の知識と技術を身につけられるのが、DHUの特長です。Webサイトの構築技法のみならず各種サービスの企画・運営についてまでを修得し業界の今、そしてこれからを活性化させる人材となることを目指します。
-          </BasicText>
-          <ButtonWrapper>
-            <BaseButton href="#" marginRight={40}>
-              資料請求はこちら
-            </BaseButton>
-            <BaseButton href="#">オープンキャンパス</BaseButton>
-          </ButtonWrapper>
-        </div>
-      </Wrapper>
-    </TextGroupWrapper>
+    <Wrapper>
+      <TextGroupWrapper groupImage={webHero}>
+        <PageLocation>Webデザイン・Web開発</PageLocation>
+        <Title>
+          <TextBlock>Web業界を</TextBlock>
+          <TextBlock>リードするための</TextBlock>
+          <br />
+          <TextBlock>知識と技術を</TextBlock>
+          <TextBlock>手に入れる</TextBlock>
+        </Title>
+        <BasicText marginTop={48}>
+          スマートフォンの普及、SNSの流行、ネットワークビジネスの拡大など、めざましい発展を続けるWeb業界。そこで求められる最先端の知識と技術を身につけられるのが、DHUの特長です。Webサイトの構築技法のみならず各種サービスの企画・運営についてまでを修得し業界の今、そしてこれからを活性化させる人材となることを目指します。
+        </BasicText>
+        <ButtonWrapper>
+          <BaseButton href="#" marginRight={40} text="資料請求はこちら" />
+          <BaseButton href="#" text="オープンキャンパス" />
+        </ButtonWrapper>
+      </TextGroupWrapper>
+    </Wrapper>
   );
 };
 

@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   width: calc(100% - 8rem);
   margin: 0 auto;
   font-size: 10rem;
+  padding: 0 0 8rem;
 `;
 
 export default TextWrapper;

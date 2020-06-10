@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
     font-family: 'noto', sans-serif;
     font-weight: normal;
+    letter-spacing: 1px;
   }
   a {
     text-decoration: none;

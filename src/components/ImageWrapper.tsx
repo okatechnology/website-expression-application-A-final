@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import imageData from '../data/images';
 import Image from './Image';
 
-const imageComponents = imageData.map((src) => <Image src={src} key={src} />);
+const imageComponents = imageData.map((data) => (
+  <Image src={data.src} size={data.size} key={data.src} />
+));
 
 const ImageWrapper = () => {
   return <ShowImage>{imageComponents}</ShowImage>;

@@ -1,5 +1,6 @@
 import React, { ReactNode, useRef, MutableRefObject, useEffect } from 'react';
 import useGlobalState from '../GlobalState';
+import styled from 'styled-components';
 
 interface TextGroupProps {
   children: ReactNode;
@@ -31,7 +32,11 @@ const TextGroupWrapper = ({ children, groupImage }: TextGroupProps) => {
     observerRef.current.observe(elementRef.current);
   });
 
-  return <div ref={elementRef}>{children}</div>;
+  return <Wrapper ref={elementRef}>{children}</Wrapper>;
 };
+
+interface WrapperProps {}
+
+const Wrapper = styled.div<WrapperProps>``;
 
 export default TextGroupWrapper;

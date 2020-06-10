@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { dhuColor } from '../data/value';
 
-const DEFAULT_MARGIN = 128;
+const DEFAULT_MARGIN = 192;
 
 interface SubTitleProps {
   EnglishTitle: string;
@@ -30,7 +30,7 @@ const Line = styled.span<LineProps>`
   height: 0.1rem;
   background-color: ${dhuColor};
   margin-top: ${({ marginTop }) =>
-    marginTop != undefined ? marginTop : DEFAULT_MARGIN}px;
+    marginTop != undefined ? marginTop / 10 : DEFAULT_MARGIN / 10}rem;
 `;
 
 const EnglishText = styled.h2`
@@ -43,7 +43,7 @@ const EnglishText = styled.h2`
 
 const JapaneseText = styled.p`
   font-size: 1.8rem;
-  margin-top: 2.4rem;
+  margin-top: 1.6rem;
 `;
 
 export default SubTitle;

@@ -1,21 +1,21 @@
 import React from 'react';
-import COLSectionDatas from '../../../data/COLSectionDatas';
+import FacultySectionData from '../../../data/facultySectionDatas';
 import TextGroupWrapper from '../../TextGroupWrapper';
-import COLSection from './parts/COLSection';
+import FacultySection from './parts/FacultySection';
 import styled from 'styled-components';
 import BaseButton from '../../BaseButton';
 
-const mainTexts = COLSectionDatas.map((data) => (
+const mainTexts = FacultySectionData.map((data) => (
   <TextGroupWrapper groupImage={data.image} key={data.headline}>
-    <COLSection headline={data.headline} explanation={data.explanation} />
+    <FacultySection headline={data.headline} explanation={data.explanation} />
   </TextGroupWrapper>
 ));
 
-const COLMain = () => {
+const FacultyMain = () => {
   return (
     <Wrapper>
       {mainTexts}
-      <BaseButton href="#" marginTop={32} text="Webデザイナーとは" />
+      <BaseButton href="#" marginTop={96} text="担当教員一覧" />
     </Wrapper>
   );
 };
@@ -27,4 +27,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default COLMain;
+export default FacultyMain;

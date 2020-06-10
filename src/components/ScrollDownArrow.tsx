@@ -87,7 +87,7 @@ const move = keyframes`
     opacity: 1;
   }
   100%{
-    transform: translateY(-2rem);
+    transform: translateY(-3rem);
     opacity:0;
   }
 `;
@@ -102,7 +102,7 @@ const Arrow = styled.div<ArrowProps>`
   bottom: 4.8rem;
   width: calc(50% - 8rem);
   justify-content: center;
-  animation: ${move} 2s infinite;
+  animation: ${move} 2s infinite ease-in-out;
   display: ${({ show }) => (show ? 'flex' : 'none')};
 `;
 

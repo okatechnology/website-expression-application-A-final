@@ -16,8 +16,8 @@ interface TextProps {
 
 const Text = styled.p<TextProps>`
   font-size: 1.6rem;
-  line-height: 2.4rem;
-  margin-top: ${({ marginTop }) => marginTop}px;
+  line-height: 2.8rem;
+  margin-top: ${({ marginTop }) => marginTop / 10}rem;
 `;
 
 export default BasicText;

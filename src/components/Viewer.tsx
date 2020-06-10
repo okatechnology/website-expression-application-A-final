@@ -39,6 +39,7 @@ const ImgBox = styled.div`
   width: 50%;
   position: fixed;
   animation: ${fadein} 1.5s;
+  background-color: #000;
 `;
 
 const TextBox = styled.div`

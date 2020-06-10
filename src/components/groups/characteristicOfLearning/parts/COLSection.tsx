@@ -33,7 +33,7 @@ const COLSection = ({ headline, explanation }: COLSectionProps) => {
 const Wrapper = styled.section``;
 
 const Headline = styled.h3`
-  font-size: 2.4rem;
+  font-size: 2.6rem;
 `;
 
 export default COLSection;

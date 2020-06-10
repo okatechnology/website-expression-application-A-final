@@ -3,13 +3,7 @@ import featureCarriculam from '../../images/feature_carriculam.jpg';
 import featureBusiness from '../../images/feature_business.jpg';
 import create from '../../images/create.jpg';
 
-export interface COLData {
-  headline: string;
-  explanation: string;
-  image: string;
-}
-
-const datas: COLData[] = [
+const datas: SectionData[] = [
   {
     headline: '基礎から先端技術まで、\nWebサイト制作に関わるすべてを学ぶ',
     explanation:
