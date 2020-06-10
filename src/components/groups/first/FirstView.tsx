@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BasicText from '../../BasicText';
 import BaseButton from '../../BaseButton';
-import { dhuColor } from '../../../data/value';
+import { dhuColor } from '../../../data/values';
 import TextGroupWrapper from '../../TextGroupWrapper';
 import webHero from '../../../../images/web_hero.jpg';
 

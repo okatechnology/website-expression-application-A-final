@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { buttonColor } from '../data/value';
+import { buttonColor } from '../data/values';
 
 interface BaseButtonProps {
   marginTop?: number;

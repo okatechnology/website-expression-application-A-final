@@ -1,5 +1,5 @@
 import React from 'react';
-import StudentsWorkSectionData from '../../../data/StudentsWorkSectionData';
+import StudentsWorkSectionData from '../../../data/studentsWorkSectionData';
 import TextGroupWrapper from '../../TextGroupWrapper';
 import StudentsWorkSection from './parts/StudentsWorkSection';
 import styled from 'styled-components';

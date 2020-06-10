@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import useGlobalState from '../../../../GlobalState';
-import { buttonColor } from '../../../../data/value';
+import { buttonColor } from '../../../../data/values';
 
 interface OtherSubjectsImageProps {
   image: string;

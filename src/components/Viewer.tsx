@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { dhuColor } from '../data/value';
+import { dhuColor } from '../data/values';
 import TextWrapper from './TextWrapper';
 import ImageWrapper from './ImageWrapper';
 

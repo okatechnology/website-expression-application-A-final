@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { dhuColor } from '../data/value';
+import { dhuColor } from '../data/values';
 const THRESHOUD = 10;
 
 const ScrollDownArrow = () => {

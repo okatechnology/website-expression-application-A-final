@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { dhuColor } from '../data/value';
+import { dhuColor } from '../data/values';
 
 const DEFAULT_MARGIN = 192;
 
@@ -31,6 +31,9 @@ const Line = styled.span<LineProps>`
   background-color: ${dhuColor};
   margin-top: ${({ marginTop }) =>
     marginTop != undefined ? marginTop / 10 : DEFAULT_MARGIN / 10}rem;
+  @media screen and (max-width: 1050px) {
+    margin-top: ${DEFAULT_MARGIN / 10}rem;
+  }
 `;
 
 const EnglishText = styled.h2`
