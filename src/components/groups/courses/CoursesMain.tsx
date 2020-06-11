@@ -4,19 +4,28 @@ import TextGroupWrapper from '../../TextGroupWrapper';
 import CoursesSection from './parts/CoursesSection';
 import styled from 'styled-components';
 
-const mainTexts = CoursesSectionData.map((data) => (
-  <TextGroupWrapper groupImage={data.image} key={data.headline}>
-    <CoursesSection headline={data.headline} explanation={data.explanation} />
-  </TextGroupWrapper>
-));
-
 const CoursesMain = () => {
-  return <Wrapper>{mainTexts}</Wrapper>;
+  return (
+    <Wrapper>
+      {CoursesSectionData.map((data) => (
+        <StyledTextGroupWrapper groupImage={data.image} key={data.headline}>
+          <CoursesSection
+            headline={data.headline}
+            explanation={data.explanation}
+            sectionImg={data.image}
+          />
+        </StyledTextGroupWrapper>
+      ))}
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`
   margin-top: 12.8rem;
-  & > div + div {
+`;
+
+const StyledTextGroupWrapper = styled(TextGroupWrapper)`
+  & + & {
     margin-top: 9.6rem;
   }
 `;

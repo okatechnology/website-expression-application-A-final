@@ -1,45 +1,41 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import styled from 'styled-components';
 import useGlobalState from '../../../../GlobalState';
-import { buttonColor } from '../../../../data/values';
+import { buttonColor, mediaQuery } from '../../../../data/values';
+import useWidthProvider from '../../../../WidthProvider';
+import dhuLogoForBlack from '../../../../../images/dhu_logo_big.png';
+import dhuLogoForWhite from '../../../../../images/dhu_logo_big_for_white.png';
 
 interface OtherSubjectsImageProps {
   image: string;
   place: string;
   href: string;
-  textGroupImage: string;
 }
 
-const OtherSubjectsImage = ({
-  image,
-  place,
-  href,
-  textGroupImage,
-}: OtherSubjectsImageProps) => {
+const OtherSubjectsImage = ({ image, place, href }: OtherSubjectsImageProps) => {
+  const twoColumn = useWidthProvider().twoColumn;
+  const groupImage = useMemo(() => (twoColumn ? dhuLogoForBlack : dhuLogoForWhite), [
+    twoColumn,
+  ]);
   const setGlobalImgRef = useRef(useGlobalState().setShownImg);
   return (
-    <Wrapper image={image}>
+    <Wrapper style={{ backgroundImage: `url('${image}')` }}>
       <Link
         href={href}
         onMouseOver={() => {
           setGlobalImgRef.current(image);
         }}
         onMouseOut={() => {
-          setGlobalImgRef.current(textGroupImage);
+          setGlobalImgRef.current(groupImage);
         }}
       >
-        {place}
+        <LinkText>{place}</LinkText>
       </Link>
     </Wrapper>
   );
 };
 
-interface WrapperProps {
-  image: string;
-}
-
-const Wrapper = styled.li<WrapperProps>`
-  background-image: url('${({ image }) => image}');
+const Wrapper = styled.li`
   background-position: center center;
   background-size: cover;
   height: 20rem;
@@ -62,9 +58,30 @@ const Link = styled.a`
   text-shadow: 0 0 5px #000;
   padding: 0 3rem;
   font-weight: bold;
-  &:hover {
+  :hover {
     background-color: ${buttonColor}aa;
     opacity: 1;
+  }
+  ${mediaQuery.forTb} {
+    opacity: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 0 0 3rem;
+    font-size: 1.6rem;
+
+    :hover {
+      background-color: transparent;
+    }
+  }
+`;
+
+const LinkText = styled.span`
+  ${mediaQuery.forTb} {
+    display: block;
+    background-color: ${buttonColor};
+    border-radius: 2.4rem 0 0;
+    padding: 0.8rem 0.8rem 0.8rem 1.6rem;
+    text-shadow: none;
   }
 `;
 

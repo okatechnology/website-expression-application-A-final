@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom';
 import Top from './pages/Top';
 import GlobalStyle, { loadFonts } from './GlobalStyle';
 import { GlobalStateProvider } from './GlobalState';
+import { WidthProvider } from './WidthProvider';
 
 const App: FC = () => {
   return (
     <>
-      <GlobalStateProvider>
-        <GlobalStyle />
-        <Top />
-      </GlobalStateProvider>
+      <WidthProvider>
+        <GlobalStateProvider>
+          <GlobalStyle />
+          <Top />
+        </GlobalStateProvider>
+      </WidthProvider>
     </>
   );
 };

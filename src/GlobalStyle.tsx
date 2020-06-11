@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import notoLight from '../webfonts/NotoSansJP-Light.otf';
 import notoMedium from '../webfonts/NotoSansJP-Medium.otf';
 import TenaliRamakrishnaRegular from '../webfonts/TenaliRamakrishna-Regular.ttf';
+import { mediaQuery } from './data/values';
 
 const FONTFACE_CIRCULAR = `
   @font-face{
@@ -33,6 +34,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'noto', sans-serif;
     font-weight: normal;
     letter-spacing: 1px;
+
+    ${mediaQuery.forTb} {
+      text-shadow: 0 0 5px #fff;
+    }
   }
   a {
     text-decoration: none;

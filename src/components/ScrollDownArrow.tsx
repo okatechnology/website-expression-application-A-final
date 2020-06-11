@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { dhuColor } from '../data/values';
+import { dhuColor, mediaQuery } from '../data/values';
 const THRESHOUD = 10;
 
 const ScrollDownArrow = () => {
@@ -87,7 +87,7 @@ const move = keyframes`
     opacity: 1;
   }
   100%{
-    transform: translateY(-3rem);
+    transform: translateY(-4rem);
     opacity:0;
   }
 `;
@@ -104,6 +104,10 @@ const Arrow = styled.div<ArrowProps>`
   justify-content: center;
   animation: ${move} 2s infinite ease-in-out;
   display: ${({ show }) => (show ? 'flex' : 'none')};
+
+  ${mediaQuery.forTb} {
+    width: calc(100% - 8rem);
+  }
 `;
 
 interface ArrowPartProps {

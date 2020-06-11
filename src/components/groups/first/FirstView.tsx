@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BasicText from '../../BasicText';
 import BaseButton from '../../BaseButton';
-import { dhuColor } from '../../../data/values';
+import { dhuColor, mediaQuery } from '../../../data/values';
 import TextGroupWrapper from '../../TextGroupWrapper';
 import webHero from '../../../../images/web_hero.jpg';
 
@@ -18,9 +18,9 @@ const FirstView = () => {
           <TextBlock>知識と技術を</TextBlock>
           <TextBlock>手に入れる</TextBlock>
         </Title>
-        <BasicText marginTop={48}>
+        <Description>
           スマートフォンの普及、SNSの流行、ネットワークビジネスの拡大など、めざましい発展を続けるWeb業界。そこで求められる最先端の知識と技術を身につけられるのが、DHUの特長です。Webサイトの構築技法のみならず各種サービスの企画・運営についてまでを修得し業界の今、そしてこれからを活性化させる人材となることを目指します。
-        </BasicText>
+        </Description>
         <ButtonWrapper>
           <BaseButton href="#" marginRight={40} text="資料請求はこちら" />
           <BaseButton href="#" text="オープンキャンパス" />
@@ -39,6 +39,9 @@ const Title = styled.h1`
   font-size: 4.6rem;
   margin-top: 4.8rem;
   color: ${dhuColor};
+  ${mediaQuery.forSp} {
+    font-size: 3rem;
+  }
 `;
 
 const TextBlock = styled.span`
@@ -56,6 +59,10 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+`;
+
+const Description = styled(BasicText)`
+  margin-top: 4.8rem;
 `;
 
 export default FirstView;

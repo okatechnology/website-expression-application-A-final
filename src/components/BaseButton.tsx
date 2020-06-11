@@ -35,6 +35,7 @@ const Button = styled.a<ButtonProps>`
   align-items: center;
   justify-content: center;
   color: ${buttonColor};
+  background-color: #fff;
   border: 1px solid ${buttonColor};
   height: 4.8rem;
   width: 100%;

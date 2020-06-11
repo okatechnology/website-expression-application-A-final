@@ -25,7 +25,7 @@ const COLSection = ({ headline, explanation }: COLSectionProps) => {
   return (
     <Wrapper>
       <Headline>{organizedHeadline}</Headline>
-      <BasicText marginTop={32}>{explanation}</BasicText>
+      <Description>{explanation}</Description>
     </Wrapper>
   );
 };
@@ -34,6 +34,11 @@ const Wrapper = styled.section``;
 
 const Headline = styled.h3`
   font-size: 2.6rem;
+  margin: 0;
+`;
+
+const Description = styled(BasicText)`
+  margin-top: 3.2rem;
 `;
 
 export default COLSection;

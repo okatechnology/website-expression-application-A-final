@@ -13,7 +13,7 @@ const GraduateSection = ({ headline, explanation, detailsLink }: FacultySectionP
   return (
     <Wrapper>
       <Headline>{headline}</Headline>
-      <BasicText marginTop={16}>{explanation}</BasicText>
+      <Description>{explanation}</Description>
       <BaseButton href={detailsLink} marginTop={16} width={120} text="詳細" />
     </Wrapper>
   );
@@ -27,7 +27,11 @@ const Wrapper = styled.section`
 
 const Headline = styled.h3`
   font-size: 1.6rem;
-  margin-bottom: 0;
+  margin: 0;
+`;
+
+const Description = styled(BasicText)`
+  margin-top: 1.6rem;
 `;
 
 export default GraduateSection;

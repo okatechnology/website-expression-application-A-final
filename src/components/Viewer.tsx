@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { dhuColor } from '../data/values';
+import { dhuColor, mediaQuery } from '../data/values';
 import TextWrapper from './TextWrapper';
 import ImageWrapper from './ImageWrapper';
 
@@ -32,6 +32,11 @@ const fadein = keyframes`
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+
+  ${mediaQuery.forTb} {
+    display: block;
+    position: relative;
+  }
 `;
 
 const ImgBox = styled.div`
@@ -40,6 +45,12 @@ const ImgBox = styled.div`
   position: fixed;
   animation: ${fadein} 1.5s;
   background-color: #000;
+
+  ${mediaQuery.forTb} {
+    width: 100%;
+    z-index: -9999;
+    background-color: #fff;
+  }
 `;
 
 const TextBox = styled.div`
@@ -47,6 +58,11 @@ const TextBox = styled.div`
   width: 50%;
   margin-left: 50%;
   animation: ${fadein} 1.5s;
+
+  ${mediaQuery.forTb} {
+    margin-left: 0;
+    width: 100%;
+  }
 `;
 
 const extend = keyframes`
@@ -64,6 +80,10 @@ const CenterBorder = styled.span`
   top: 0;
   background-color: ${dhuColor};
   animation: ${extend} 1s;
+
+  ${mediaQuery.forTb} {
+    display: none;
+  }
 `;
 
 export default Viewer;
