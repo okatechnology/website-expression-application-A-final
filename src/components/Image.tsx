@@ -67,6 +67,19 @@ const BGForSP = styled.div`
       #fff0
     );
   }
+  ${mediaQuery.forSp} {
+    background: linear-gradient(
+      to bottom,
+      #fff0,
+      #fffa 5%,
+      #fffd 10%,
+      #fffe 20%,
+      #fffe 80%,
+      #fffd 90%,
+      #fffa 95%,
+      #fff0
+    );
+  }
 `;
 
 export default Image;

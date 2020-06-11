@@ -37,6 +37,14 @@ const Wrapper = styled.section`
     grid-row-gap: 2.4rem;
     align-items: center;
   }
+  ${mediaQuery.forSp} {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'title'
+      'img'
+      'description';
+    grid-row-gap: 1.6rem;
+  }
 `;
 
 const WorkImg = styled.img`
@@ -52,6 +60,9 @@ const Headline = styled.h3`
   margin: 0;
   ${mediaQuery.forTb} {
     grid-area: title;
+  }
+  ${mediaQuery.forSp} {
+    font-size: 1.8rem;
   }
 `;
 

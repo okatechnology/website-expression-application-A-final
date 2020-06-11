@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { mediaQuery } from '../data/values';
+import { mediaQuery, textMargin } from '../data/values';
 
 const TextWrapper: FC = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
@@ -8,14 +8,14 @@ const TextWrapper: FC = ({ children }) => {
 
 const Wrapper = styled.div`
   max-width: 80rem;
-  width: calc(100% - 8rem);
+  width: calc(100% - ${textMargin.default * 2}px);
   margin: 0 auto;
   font-size: 10rem;
-  padding: 0 0 8rem;
+  padding: 0 0 ${textMargin.default}px;
 
   ${mediaQuery.forSp} {
-    width: calc(100% - 3.2rem);
-    padding: 0 0 4rem;
+    width: calc(100% - ${textMargin.sp * 2}px);
+    padding: 0 0 ${textMargin.sp}px;
   }
 `;
 

@@ -1,36 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
-import { dhuColor } from '../data/values';
-
-const DEFAULT_MARGIN = 192;
+import { dhuColor, mediaQuery } from '../data/values';
 
 interface SubTitleProps {
   EnglishTitle: string;
   JapaneseTitle: string;
-  marginTop?: number;
+  className?: string;
 }
 
-const SubTitle = ({ EnglishTitle, JapaneseTitle, marginTop }: SubTitleProps) => {
+const SubTitle = ({ EnglishTitle, JapaneseTitle, className }: SubTitleProps) => {
   return (
-    <>
-      <Line marginTop={marginTop} />
+    <Wrapper className={className}>
+      <Line />
       <EnglishText>{EnglishTitle}</EnglishText>
       <JapaneseText>{JapaneseTitle}</JapaneseText>
-    </>
+    </Wrapper>
   );
 };
 
-interface LineProps {
-  marginTop?: number;
-}
+const Wrapper = styled.div`
+  margin-top: 19.2rem;
 
-const Line = styled.span<LineProps>`
+  & + * {
+    margin-top: 12.8rem;
+  }
+
+  ${mediaQuery.forSp} {
+    margin-top: 12.8rem;
+
+    & + * {
+      margin-top: 9.6rem;
+    }
+  }
+`;
+
+const Line = styled.span`
   display: block;
   width: 100%;
   height: 0.1rem;
   background-color: ${dhuColor};
-  margin-top: ${({ marginTop }) =>
-    marginTop != undefined ? marginTop / 10 : DEFAULT_MARGIN / 10}rem;
 `;
 
 const EnglishText = styled.h2`
@@ -39,11 +47,19 @@ const EnglishText = styled.h2`
   font-family: 'tenali', sans-serif;
   font-weight: 400;
   line-height: 4.8rem;
+
+  ${mediaQuery.forSp} {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
 `;
 
 const JapaneseText = styled.p`
   font-size: 1.8rem;
   margin-top: 1.6rem;
+  ${mediaQuery.forSp} {
+    margin-top: 0.8rem;
+  }
 `;
 
 export default SubTitle;

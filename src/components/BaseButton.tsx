@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { buttonColor } from '../data/values';
+import { buttonColor, mediaQuery } from '../data/values';
 
 interface BaseButtonProps {
   marginTop?: number;
@@ -8,11 +8,11 @@ interface BaseButtonProps {
   marginBottom?: number;
   marginRight?: number;
   width?: number;
+  className?: string;
   text: string;
   href: string;
 }
 
-const DEFAULT_WIDTH = 196;
 const TRANSITION_DUR = 0.2;
 
 const BaseButton = ({ text, ...props }: BaseButtonProps) => {
@@ -39,11 +39,14 @@ const Button = styled.a<ButtonProps>`
   border: 1px solid ${buttonColor};
   height: 4.8rem;
   width: 100%;
-  max-width: ${({ width }) =>
-    width !== undefined ? `${width / 10}rem` : `${DEFAULT_WIDTH / 10}rem`};
+  max-width: 19.6rem;
   border-radius: 1.2rem;
   font-size: 1.5rem;
   transition: background-color ${TRANSITION_DUR}s, color ${TRANSITION_DUR}s;
+
+  ${mediaQuery.forSp} {
+    max-width: 100%;
+  }
 
   &:hover {
     background-color: ${buttonColor};
@@ -53,6 +56,18 @@ const Button = styled.a<ButtonProps>`
       border-bottom: 0px solid transparent;
       border-left: 0px solid ${buttonColor};
       margin: 0;
+    }
+    ${mediaQuery.forTb} {
+      background-color: #fff;
+      color: ${buttonColor};
+      & > div {
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-left: 6px solid ${buttonColor};
+        margin-right: 0.5rem;
+      }
     }
   }
 `;

@@ -18,13 +18,17 @@ const FacultyMain = () => {
           />
         </StyledTextGroupWrapper>
       ))}
-      <BaseButton href="#" marginTop={96} text="担当教員一覧" />
+      <StyledBaseButton href="#" text="担当教員一覧" />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   margin-top: 12.8rem;
+
+  ${mediaQuery.forSp} {
+    margin-top: 9.6rem;
+  }
 `;
 
 const StyledTextGroupWrapper = styled(TextGroupWrapper)`
@@ -33,8 +37,21 @@ const StyledTextGroupWrapper = styled(TextGroupWrapper)`
   }
   ${mediaQuery.forTb} {
     & + & {
-      margin-top: 6.4rem;
+      margin-top: 4.8rem;
     }
+  }
+  ${mediaQuery.forSp} {
+    & + & {
+      margin-top: 3.2rem;
+    }
+  }
+`;
+
+const StyledBaseButton = styled(BaseButton)`
+  margin-top: 9.6rem;
+
+  ${mediaQuery.forSp} {
+    margin-top: 6.4rem;
   }
 `;
 

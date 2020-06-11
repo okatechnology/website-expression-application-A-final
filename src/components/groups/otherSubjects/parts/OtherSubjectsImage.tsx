@@ -43,6 +43,10 @@ const Wrapper = styled.li`
   list-style: none;
   border-bottom: 3px solid ${buttonColor};
   border-right: 3px solid ${buttonColor};
+
+  ${mediaQuery.forSp} {
+    height: 15rem;
+  }
 `;
 
 const Link = styled.a`
@@ -62,6 +66,7 @@ const Link = styled.a`
     background-color: ${buttonColor}aa;
     opacity: 1;
   }
+
   ${mediaQuery.forTb} {
     opacity: 1;
     align-items: flex-end;
@@ -72,6 +77,10 @@ const Link = styled.a`
     :hover {
       background-color: transparent;
     }
+  }
+
+  ${mediaQuery.forSp} {
+    font-size: 1.4rem;
   }
 `;
 

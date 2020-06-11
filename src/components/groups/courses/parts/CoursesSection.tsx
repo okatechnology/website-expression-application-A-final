@@ -14,10 +14,8 @@ const CoursesSection = ({ headline, explanation, sectionImg }: CoursesSectionPro
   const twoColumn = useWidthProvider().twoColumn;
   return (
     <Wrapper>
-      <div>
-        <Headline>{headline}</Headline>
-        <Description>{explanation}</Description>
-      </div>
+      <Headline>{headline}</Headline>
+      <Description>{explanation}</Description>
       {!twoColumn && <SectionImg src={sectionImg} />}
     </Wrapper>
   );
@@ -25,27 +23,49 @@ const CoursesSection = ({ headline, explanation, sectionImg }: CoursesSectionPro
 
 const Wrapper = styled.section`
   ${mediaQuery.forTb} {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-areas:
+      'title       title'
+      'description img';
+    grid-column-gap: 1.6rem;
+    grid-row-gap: 2.4rem;
+    grid-template-columns: 1fr 40%;
+  }
+
+  ${mediaQuery.forSp} {
+    grid-template-areas:
+      'title'
+      'img'
+      'description';
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.6rem;
   }
 `;
 
 const SectionImg = styled.img`
   ${mediaQuery.forTb} {
     display: block;
-    width: 40rem;
-    max-width: 40%;
-    margin-left: 1.6rem;
+    grid-area: img;
+    width: 100%;
+    align-self: center;
   }
 `;
 
 const Headline = styled.h3`
   font-size: 2.1rem;
   margin: 0;
+  ${mediaQuery.forTb} {
+    grid-area: title;
+  }
 `;
 
 const Description = styled(BasicText)`
   margin-top: 2.4rem;
+
+  ${mediaQuery.forTb} {
+    grid-area: description;
+    margin: 0;
+  }
 `;
 
 export default CoursesSection;

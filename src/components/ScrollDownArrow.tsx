@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { dhuColor, mediaQuery } from '../data/values';
+import { dhuColor, mediaQuery, textMargin } from '../data/values';
 const THRESHOUD = 10;
 
 const ScrollDownArrow = () => {
   const [show, setShow] = useState(true);
-  const [showArrow, setArrow] = useState(true);
+  const [showArrow, setShowArrow] = useState(true);
   const showRef = useRef(show);
   showRef.current = show;
   const scrolled = useRef(true);
@@ -38,7 +38,7 @@ const ScrollDownArrow = () => {
     <Wrapper
       show={show}
       onAnimationEnd={() => {
-        setArrow(show);
+        setShowArrow(show);
       }}
     >
       <Arrow show={showArrow}>
@@ -100,13 +100,16 @@ const Arrow = styled.div<ArrowProps>`
   margin: 0 auto;
   position: fixed;
   bottom: 4.8rem;
-  width: calc(50% - 8rem);
+  width: calc(50% - ${textMargin.default}px);
   justify-content: center;
   animation: ${move} 2s infinite ease-in-out;
   display: ${({ show }) => (show ? 'flex' : 'none')};
 
   ${mediaQuery.forTb} {
-    width: calc(100% - 8rem);
+    width: calc(100% - ${textMargin.tb * 2}px);
+  }
+  ${mediaQuery.forSp} {
+    width: calc(100% - ${textMargin.sp * 2}px);
   }
 `;
 

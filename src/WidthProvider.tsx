@@ -16,7 +16,7 @@ export const WidthProvider: FC = ({ children }) => {
   useEffect(() => {
     const ev = debounce(() => {
       setWidth(window.innerWidth);
-    }, 1000);
+    }, 500);
     window.addEventListener('resize', ev);
     return () => {
       window.removeEventListener('resize', ev);

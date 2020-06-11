@@ -6,6 +6,7 @@ import TextGroupWrapper from '../../TextGroupWrapper';
 import dhuLogoForBlack from '../../../../images/dhu_logo_big.png';
 import dhuLogoForWhite from '../../../../images/dhu_logo_big_for_white.png';
 import useWidthProvider from '../../../WidthProvider';
+import { mediaQuery } from '../../../data/values';
 
 const OtherSubjectsMain = () => {
   const twoColumn = useWidthProvider().twoColumn;
@@ -33,7 +34,12 @@ const Wrapper = styled.ul`
   padding: 0;
   display: grid;
   gap: 1.6rem;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: 1fr 1fr;
+
+  ${mediaQuery.forSp} {
+    margin: 9.6rem 0 0;
+    gap: 0.8rem;
+  }
 `;
 
 export default OtherSubjectsMain;

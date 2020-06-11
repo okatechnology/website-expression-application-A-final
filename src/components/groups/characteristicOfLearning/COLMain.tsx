@@ -4,6 +4,7 @@ import TextGroupWrapper from '../../TextGroupWrapper';
 import COLSection from './parts/COLSection';
 import styled from 'styled-components';
 import BaseButton from '../../BaseButton';
+import { mediaQuery } from '../../../data/values';
 
 const COLMain = () => {
   return (
@@ -20,11 +21,19 @@ const COLMain = () => {
 
 const Wrapper = styled.div`
   margin-top: 12.8rem;
+  ${mediaQuery.forSp} {
+    margin-top: 9.6rem;
+  }
 `;
 
 const StyledTextGroupWrapper = styled(TextGroupWrapper)`
   & + & {
     margin-top: 12.8rem;
+  }
+  ${mediaQuery.forSp} {
+    & + & {
+      margin-top: 6.4rem;
+    }
   }
 `;
 

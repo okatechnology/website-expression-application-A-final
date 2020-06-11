@@ -3,6 +3,7 @@ import CoursesSectionData from '../../../data/coursesSectionData';
 import TextGroupWrapper from '../../TextGroupWrapper';
 import CoursesSection from './parts/CoursesSection';
 import styled from 'styled-components';
+import { mediaQuery } from '../../../data/values';
 
 const CoursesMain = () => {
   return (
@@ -22,6 +23,9 @@ const CoursesMain = () => {
 
 const Wrapper = styled.div`
   margin-top: 12.8rem;
+  ${mediaQuery.forSp} {
+    margin-top: 9.6rem;
+  }
 `;
 
 const StyledTextGroupWrapper = styled(TextGroupWrapper)`
