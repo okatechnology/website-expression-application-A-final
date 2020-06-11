@@ -9,7 +9,7 @@ import { mediaQuery } from '../../../data/values';
 const GraduateMain = () => {
   return (
     <Wrapper>
-      <TextGroupWrapper groupImage={image}>
+      <TextGroupWrapper groupImage={image} noMark={true}>
         {graduateSectionData.map((data) => (
           <GraduateSection
             headline={data.headline}

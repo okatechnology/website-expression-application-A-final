@@ -1,4 +1,5 @@
 export const dhuColor = '#f60';
+export const dhuColorLight = '#f83';
 export const buttonColor = '#0040ED';
 export const textMargin = {
   default: 40,

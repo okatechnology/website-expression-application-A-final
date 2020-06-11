@@ -4,12 +4,18 @@ import TextGroupWrapper from '../../TextGroupWrapper';
 import StudentsWorkSection from './parts/StudentsWorkSection';
 import styled from 'styled-components';
 import { mediaQuery } from '../../../data/values';
+import useWidthProvider from '../../../WidthProvider';
+import studentsWorkImage from '../../../../images/garary.jpg';
 
 const StudentsWorkMain = () => {
+  const twoColumn = useWidthProvider().twoColumn;
   return (
     <Wrapper>
       {StudentsWorkSectionData.map((data) => (
-        <StyledTextGroupWrapper groupImage={data.image} key={data.headline}>
+        <StyledTextGroupWrapper
+          groupImage={twoColumn ? data.image : studentsWorkImage}
+          key={data.headline}
+        >
           <StudentsWorkSection
             headline={data.headline}
             explanation={data.explanation}

@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import useGlobalState from '../GlobalState';
 import { mediaQuery } from '../data/values';
-import dhuLogoForWhite from '../../images/dhu_logo_big_for_white.png';
 import useWidthProvider from '../WidthProvider';
 
 interface ImageProps extends BGImageData {}
@@ -13,15 +12,12 @@ const Image = ({ src, size }: ImageProps) => {
   const shownImg = useGlobalState().shownImg;
   const show = useMemo(() => src === shownImg, [shownImg]);
   const twoColumn = useWidthProvider().twoColumn;
-  const image = useMemo(() => (twoColumn || size === 'cover' ? src : dhuLogoForWhite), [
-    twoColumn,
-  ]);
   return (
     <Wrapper
       size={size}
       show={show}
       twoColumn={twoColumn}
-      style={{ backgroundImage: `url('${image}')` }}
+      style={{ backgroundImage: `url('${src}')` }}
     >
       <BGForSP />
     </Wrapper>

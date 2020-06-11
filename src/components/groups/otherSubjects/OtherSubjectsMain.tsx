@@ -14,7 +14,7 @@ const OtherSubjectsMain = () => {
     twoColumn,
   ]);
   return (
-    <TextGroupWrapper groupImage={groupImage}>
+    <TextGroupWrapper groupImage={groupImage} noMark={true}>
       <Wrapper>
         {linkData.map((data) => (
           <OtherSubjectsImage

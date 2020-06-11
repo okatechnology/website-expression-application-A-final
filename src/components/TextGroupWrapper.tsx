@@ -2,10 +2,12 @@ import React, { useRef, useEffect, FC, useMemo, RefCallback } from 'react';
 import useGlobalState from '../GlobalState';
 import styled from 'styled-components';
 import webHero from '../../images/web_hero.jpg';
+import { textMargin, dhuColor, mediaQuery } from '../data/values';
 
 interface TextGroupProps {
   groupImage: string;
   className?: string;
+  noMark?: boolean;
 }
 
 const options: IntersectionObserverInit = {
@@ -14,7 +16,12 @@ const options: IntersectionObserverInit = {
   threshold: 0,
 };
 
-const TextGroupWrapper: FC<TextGroupProps> = ({ children, groupImage, className }) => {
+const TextGroupWrapper: FC<TextGroupProps> = ({
+  children,
+  groupImage,
+  className,
+  noMark,
+}) => {
   const setShownImgRef = useRef(useGlobalState().setShownImg);
   const imageRef = useRef(groupImage);
   if (imageRef.current !== groupImage) {
@@ -43,12 +50,16 @@ const TextGroupWrapper: FC<TextGroupProps> = ({ children, groupImage, className 
     [],
   );
 
+  const shownImg = useGlobalState().shownImg;
+  const leftBarOn = useMemo(() => !noMark && imageRef.current === shownImg, [shownImg]);
+
   useEffect(() => {
     setShownImgRef.current(webHero);
   }, [imageRef.current]);
 
   return (
     <Wrapper ref={wrapperRef} className={className}>
+      <LeftMark show={leftBarOn} />
       {children}
     </Wrapper>
   );
@@ -56,6 +67,24 @@ const TextGroupWrapper: FC<TextGroupProps> = ({ children, groupImage, className 
 
 interface WrapperProps {}
 
-const Wrapper = styled.div<WrapperProps>``;
+const Wrapper = styled.div<WrapperProps>`
+  position: relative;
+`;
+
+const LeftMark = styled.div<{ show: boolean }>`
+  opacity: ${({ show }) => (show ? '1' : '0')};
+  transition: opacity 0.3s;
+  position: absolute;
+  left: ${(textMargin.default * -1) / 10}rem;
+  top: calc(50% - ${textMargin.default / 2 / 10}rem);
+  height: ${textMargin.default / 10}rem;
+  width: ${textMargin.default / 2 / 10}rem;
+  border-radius: 0 99px 99px 0;
+  background-color: ${dhuColor};
+
+  ${mediaQuery.forTb} {
+    display: none;
+  }
+`;
 
 export default TextGroupWrapper;

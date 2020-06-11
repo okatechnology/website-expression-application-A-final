@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import BasicText from '../../BasicText';
 import BaseButton from '../../BaseButton';
-import { dhuColor, mediaQuery, textMargin } from '../../../data/values';
+import { dhuColor, mediaQuery, textMargin, dhuColorLight } from '../../../data/values';
 import TextGroupWrapper from '../../TextGroupWrapper';
 import webHeroImg from '../../../../images/web_hero.jpg';
 import whiteLogo from '../../../../images/dhu_logo_big_for_white.png';
@@ -15,8 +15,8 @@ const FirstView = () => {
     twoColumn,
   ]);
   return (
-    <StyledTextGroupWrapper groupImage={image}>
-      <div>
+    <Wrapper>
+      <TextGroupWrapper groupImage={image} noMark={true}>
         <TitleWrapper style={{ backgroundImage: titleBg }}>
           <PageLocation>Webデザイン・Web開発</PageLocation>
           <Title>
@@ -34,8 +34,8 @@ const FirstView = () => {
           <CustomedBaseButton href="#" text="資料請求はこちら" />
           <CustomedBaseButton href="#" text="オープンキャンパス" />
         </ButtonWrapper>
-      </div>
-    </StyledTextGroupWrapper>
+      </TextGroupWrapper>
+    </Wrapper>
   );
 };
 
@@ -56,6 +56,10 @@ const Title = styled.h1`
   font-size: 4.6rem;
   margin: 3.2rem 0 0;
   color: ${dhuColor};
+
+  ${mediaQuery.forTb} {
+    color: ${dhuColorLight};
+  }
 
   ${mediaQuery.forSp} {
     font-size: 3rem;
@@ -78,7 +82,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const StyledTextGroupWrapper = styled(TextGroupWrapper)`
+const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
   align-items: center;

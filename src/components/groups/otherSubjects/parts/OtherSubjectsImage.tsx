@@ -81,6 +81,7 @@ const Link = styled.a`
 
   ${mediaQuery.forSp} {
     font-size: 1.4rem;
+    padding: 0 0 0 1.6rem;
   }
 `;
 
@@ -91,6 +92,10 @@ const LinkText = styled.span`
     border-radius: 2.4rem 0 0;
     padding: 0.8rem 0.8rem 0.8rem 1.6rem;
     text-shadow: none;
+  }
+  ${mediaQuery.forSp} {
+    border-radius: 1.2rem 0 0;
+    padding: 0.4rem 0.4rem 0.4rem 0.8rem;
   }
 `;
 
